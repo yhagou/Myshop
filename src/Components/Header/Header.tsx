@@ -3,11 +3,17 @@ import { Cart } from "../Cart/Cart";
 import { FiLogIn, FiLogOut, FiShoppingCart } from "react-icons/fi";
 
 import * as S from "./styles";
+import { useSelector } from "react-redux";
+import { RootReducer } from "../../redux/UserReducer/root-reducer";
 
 export const Header: React.FC = () => {
+  const { user } = useSelector(
+    (rootReducer: RootReducer) => rootReducer.userReducer
+  );
+  console.log(user);
+
   const [showCart, setShowCart] = useState(false);
   const isLogged = false;
-  console.log(showCart);
 
   return (
     <S.StyledHeader>
